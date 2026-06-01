@@ -1,4 +1,4 @@
-````md
+
 # CloudCost Guardian
 
 AWS Cloud Cost Optimization & Governance Platform
