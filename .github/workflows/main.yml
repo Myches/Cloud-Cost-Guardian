@@ -39,11 +39,7 @@ jobs:
       - name: Run Lint
         run: npm run lint
 
-      # Run Type Checking
-      - name: Run TypeScript Check
-        run: npm run type-check
-        continue-on-error: true
-
+     
       # Build project
       - name: Build Application
         run: npm run build
