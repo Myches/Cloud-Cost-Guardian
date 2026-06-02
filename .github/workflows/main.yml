@@ -1,0 +1,50 @@
+
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      # Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # Run ESLint
+      - name: Run Lint
+        run: npm run lint
+
+      # Run Type Checking
+      - name: Run TypeScript Check
+        run: npm run type-check
+        continue-on-error: true
+
+      # Build project
+      - name: Build Application
+        run: npm run build
+
