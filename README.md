@@ -179,9 +179,7 @@ Enable Multi-Factor Authentication on the root account immediately.
 
 ## 3. Create IAM Deployment User
 
-Create a dedicated IAM user with:
-
-* `AdministratorAccess`
+Create a dedicated IAM user with Role permissions
 
 ## 4. Configure AWS CLI
 
